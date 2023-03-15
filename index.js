@@ -2,8 +2,11 @@ import pg from "pg";
 import cors from "cors";
 import express from "express";
 const { Pool } = pg;
-const link = "postgres://public_readonly:nearprotocol@testnet.db.explorer.indexer.near.dev/testnet_explorer";
-const pool = new Pool({ connectionString: link });
+const link =
+	"postgres://public_readonly:nearprotocol@testnet.db.explorer.indexer.near.dev/testnet_explorer";
+const mainnetLink =
+	"postgres://public_readonly:nearprotocol@mainnet.db.explorer.indexer.near.dev/mainnet_explorer";
+const pool = new Pool({ connectionString: mainnetLink });
 const port = process.env.PORT || 5001;
 const app = express();
 app.use(
